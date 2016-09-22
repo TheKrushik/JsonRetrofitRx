@@ -11,4 +11,10 @@
     <string name="video">Video</string>
 
     <string name="server_call">Tap on floating action button to make server call</string>
+    <string name="author">Author</string>
+    <string name="anons">Anons</string>
+    <string name="typePdf">typePdf</string>
+    <string name="urlPdf">urlPdf</string>
+    <string name="typeEpub">typeEpub</string>
+    <string name="urlEpub">urlEpub</string>
 </resources>

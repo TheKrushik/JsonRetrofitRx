@@ -10,9 +10,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import info.krushik.android.jsonretrofitrx.R;
+import info.krushik.android.jsonretrofitrx.adapter.BookAdapter;
 import info.krushik.android.jsonretrofitrx.adapter.VideoAdapter;
-import info.krushik.android.jsonretrofitrx.api.VideoList;
-import info.krushik.android.jsonretrofitrx.retrofit.ProjectAPI;
+import info.krushik.android.jsonretrofitrx.model.Book;
+import info.krushik.android.jsonretrofitrx.model.BookList;
+import info.krushik.android.jsonretrofitrx.model.VideoList;
+import info.krushik.android.jsonretrofitrx.retrofit.API;
 import info.krushik.android.jsonretrofitrx.retrofit.RetrofitService;
 
 import rx.Observer;
@@ -35,15 +38,24 @@ public class MainActivity extends AppCompatActivity {
 
     private void callServerFetchVideoList() {
 
-        final ProjectAPI service = RetrofitService.createRetrofitClient();
+        final API service = RetrofitService.createRetrofitClient();
 
         subscription = service.getAllVideo()
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(myObserver);
+                .subscribe(videoObserver);
     }
 
-    Observer<VideoList> myObserver = new Observer<VideoList>() {
+    private void callServerFetchBookList() {
+        final API service = RetrofitService.createRetrofitClient();
+
+        subscription = service.getAllBook()
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(bookObserver);
+    }
+
+    Observer<VideoList> videoObserver = new Observer<VideoList>() {
 
         @Override
         public void onCompleted() {
@@ -62,6 +74,25 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+    Observer<BookList> bookObserver = new Observer<BookList>() {
+
+        @Override
+        public void onCompleted() {
+            subscription.unsubscribe();
+        }
+
+        @Override
+        public void onError(Throwable e) {
+            // Called when the observable encounters an error
+            Log.d(TAG, ">>>> onError gets called : " + e.getMessage());
+        }
+
+        @Override
+        public void onNext(BookList bookList) {
+            findViewAndSetAdapter(bookList);
+        }
+    };
+
     private void findViewAndSetAdapter(VideoList videoList) {
 
         RecyclerView recList = (RecyclerView) findViewById(R.id.cardList);
@@ -77,6 +108,22 @@ public class MainActivity extends AppCompatActivity {
         va.notifyDataSetChanged();
     }
 
+    private void findViewAndSetAdapter(BookList bookList) {
+
+        RecyclerView recList = (RecyclerView) findViewById(R.id.cardList);
+        recList.setHasFixedSize(true);
+
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        recList.setLayoutManager(llm);
+
+        BookAdapter ba = new BookAdapter(bookList.getList());
+        recList.setAdapter(ba);
+        ba.notifyDataSetChanged();
+    }
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -91,10 +138,12 @@ public class MainActivity extends AppCompatActivity {
                 callServerFetchVideoList();
                 return true;
             case R.id.refreshBook:
-//                callServerFetchBookList();
+                callServerFetchBookList();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
+
+
 }

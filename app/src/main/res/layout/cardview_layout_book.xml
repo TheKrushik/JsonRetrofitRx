@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:id="@+id/item_layout_container"
     android:padding="8dp">
 
@@ -30,52 +30,72 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Display2" />
 
             <TextView
-                android:id="@+id/picture"
+                android:id="@+id/author"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-                android:text="@string/picture"
+                android:text="@string/author"
                 android:layout_below="@+id/title"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
 
             <TextView
-                android:id="@+id/desc"
+                android:id="@+id/anons"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:text="@string/desc"
+                android:text="@string/anons"
+                android:layout_below="@+id/author"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:id="@+id/picture"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:text="@string/picture"
+                android:layout_below="@+id/anons"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:id="@+id/typePdf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:text="@string/typePdf"
                 android:layout_below="@+id/picture"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
 
             <TextView
-                android:id="@+id/length"
+                android:id="@+id/urlPdf"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:text="@string/length"
-                android:layout_below="@+id/desc"
+                android:text="@string/urlPdf"
+                android:layout_below="@+id/typePdf"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
 
             <TextView
-                android:id="@+id/dt"
+                android:id="@+id/urlEpub"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:text="@string/dt"
-                android:layout_below="@+id/length"
+                android:text="@string/urlEpub"
+                android:layout_below="@+id/typeEpub"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
 
             <TextView
-                android:id="@+id/video"
+                android:id="@+id/typeEpub"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:text="@string/video"
-                android:layout_below="@+id/dt"
+                android:text="@string/typeEpub"
+                android:layout_below="@+id/urlPdf"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
 

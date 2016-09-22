@@ -1,4 +1,4 @@
-package info.krushik.android.jsonretrofitrx.api;
+package info.krushik.android.jsonretrofitrx.model;
 
 import java.util.ArrayList;
 import java.util.List;

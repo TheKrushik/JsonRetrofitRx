@@ -14,7 +14,7 @@ public class RetrofitService {
     public RetrofitService(){
     }
 
-    public static ProjectAPI createRetrofitClient() {
+    public static API createRetrofitClient() {
 
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
@@ -27,6 +27,6 @@ public class RetrofitService {
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .client(client)
                 .build();
-        return retrofit.create(ProjectAPI.class);
+        return retrofit.create(API.class);
     }
 }

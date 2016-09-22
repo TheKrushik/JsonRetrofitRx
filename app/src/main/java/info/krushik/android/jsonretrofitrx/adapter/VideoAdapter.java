@@ -8,7 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import info.krushik.android.jsonretrofitrx.R;
-import info.krushik.android.jsonretrofitrx.api.Video;
+import info.krushik.android.jsonretrofitrx.model.Video;
 
 import java.util.List;
 
@@ -34,7 +34,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
     public VideoViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View itemView = LayoutInflater.
                 from(viewGroup.getContext()).
-                inflate(R.layout.cardview_layout, viewGroup, false);
+                inflate(R.layout.cardview_layout_video, viewGroup, false);
 
         return new VideoViewHolder(itemView);
     }
