@@ -9,7 +9,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitService {
 
-//    private final static String API_URL = "http://api.geonames.org";
     private final static String API_URL = "https://raw.githubusercontent.com/";
 
     public RetrofitService(){

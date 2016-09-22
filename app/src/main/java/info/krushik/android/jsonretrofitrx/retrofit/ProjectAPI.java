@@ -8,8 +8,7 @@ import rx.Observable;
 
 public interface ProjectAPI {
 
-//    @GET("/countryInfoJSON?lang=en&username=antriksh")
-    @GET("TheKrushik/JsonRetrofit/master/Video.txt")
+    @GET("/TheKrushik/JsonRetrofitRx/master/Video.txt")
     Observable<VideoList> getAllVideo();
 
 }
