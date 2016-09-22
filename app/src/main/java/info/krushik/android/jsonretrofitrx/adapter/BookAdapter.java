@@ -16,10 +16,16 @@ import info.krushik.android.jsonretrofitrx.model.Video;
 public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder> {
 
     private List<Book> bookList;
+    private List<Book.BookFiles> bookFilesList;
 
-    public BookAdapter(List<Book> bookList) {
+    public BookAdapter(List<Book> bookList, List<Book.BookFiles> bookFilesList) {
         this.bookList = bookList;
+        this.bookFilesList = bookFilesList;
     }
+
+//    public BookAdapter(List<Book> bookList) {
+//        this.bookList = bookList;
+//    }
 
     @Override
     public int getItemCount() {
@@ -42,15 +48,17 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
 
     @Override
     public void onBindViewHolder(BookViewHolder bookViewHolder, int position) {
-        Book vi = bookList.get(position);
-        bookViewHolder.title.setText(vi.getTitle());
-        bookViewHolder.author.setText(vi.getAuthor());
-        bookViewHolder.anons.setText(vi.getAnons());
-        bookViewHolder.picture.setText(vi.getPicture());
-//        bookViewHolder.typePdf.setText(vi.getDt());
-//        bookViewHolder.urlPdf.setText(vi.getVideo());
-//        bookViewHolder.urlEpub.setText(vi.getVideo());
-//        bookViewHolder.urlEpub.setText(vi.getVideo());
+        Book bi = bookList.get(position);
+//        Book.BookFiles bfi = bookFilesList.get(position)
+        bookViewHolder.title.setText(bi.getTitle());
+        bookViewHolder.author.setText(bi.getAuthor());
+        bookViewHolder.anons.setText(bi.getAnons());
+        bookViewHolder.picture.setText(bi.getPicture());
+
+//        bookViewHolder.typePdf.setText(bi.getDt());
+//        bookViewHolder.urlPdf.setText(bi.getVideo());
+//        bookViewHolder.urlEpub.setText(bi.getVideo());
+//        bookViewHolder.urlEpub.setText(bi.getVideo());
 
     }
 
