@@ -118,9 +118,9 @@ public class MainActivity extends AppCompatActivity {
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         recList.setLayoutManager(llm);
 
-        BookAdapter ba = new BookAdapter(bookList.getList());
-        recList.setAdapter(ba);
-        ba.notifyDataSetChanged();
+//        BookAdapter ba = new BookAdapter(bookList.getList());
+//        recList.setAdapter(ba);
+//        ba.notifyDataSetChanged();
     }
 
 

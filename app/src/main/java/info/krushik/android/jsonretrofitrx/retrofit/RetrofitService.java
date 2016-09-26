@@ -11,15 +11,14 @@ public class RetrofitService {
 
     private final static String API_URL = "https://raw.githubusercontent.com/";
 
-    public RetrofitService(){
+    public RetrofitService() {
     }
 
     public static API createRetrofitClient() {
 
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-        OkHttpClient client = new OkHttpClient.Builder().
-                addInterceptor(interceptor).build();
+        OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(API_URL)

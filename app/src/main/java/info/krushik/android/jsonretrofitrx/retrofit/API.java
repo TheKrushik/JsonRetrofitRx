@@ -12,7 +12,7 @@ public interface API {
     @GET("TheKrushik/JsonRetrofitRx/master/Video.txt")
     Observable<VideoList> getAllVideo();
 
-    @GET("TheKrushik/JsonRetrofit/master/Book.txt")
+    @GET("TheKrushik/JsonRetrofitRx/master/Book.txt")
     Observable<BookList> getAllBook();
 
 }
